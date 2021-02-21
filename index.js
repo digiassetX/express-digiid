@@ -134,13 +134,15 @@ module.exports.express = function (callback_url=false) {
             sig:    sig,
             address:postValue.address,
             uri:    postValue.uri,
-            params: {}
+            params: {},
+            paramOrder:[]
         };      //things passed but no parameters yet
         const indexOfQuestionMark=postValue.uri.indexOf('?');
         if (indexOfQuestionMark===-1) return next();
         const urlParams = new URLSearchParams(postValue.uri.substr(indexOfQuestionMark+1));
         for (const [key, value] of urlParams) {
             req.digiid.params[key]=value;
+            req.digiid.paramOrder.push(key);
         }
 
         //do next express plugin

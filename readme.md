@@ -42,6 +42,7 @@ app.post('/subdomain/:subdomain',(req,res,next)=>{
          *  address:string address value.  should generally be ignored in favour of hash,
          *  uri:    string containing the uri encoded in the Digi-Id QR code.  params is usually more useful,
          *  params: object containing all the parameters that where in the uri. "x" is the most useful parameter since it is the nonce
+         *  paramOrder: array of params in order they where included
          * };
          * you can do any aditional checks you like here.  If successful you should let the wallet know by executing
          */
